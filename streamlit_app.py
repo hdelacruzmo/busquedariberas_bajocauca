@@ -27,7 +27,7 @@ st.subheader("Proyecto de Búsqueda en Riberas — Subdirección de Análisis, P
 
 # Texto descriptivo
 st.markdown("""
-Este aplicativo permite realizar un análisis de probabilidad espacial orientado a la identificación de áreas con alta probabilidad de interés para la búsqueda de personas dadas por desaparecidas, con enfoque en riberas del río Cauca y rio Nechí.
+Este aplicativo permite realizar un análisis de probabilidad espacial orientado a la identificación de áreas con alta probabilidad de interés para la búsqueda de personas dadas por desaparecidas, con enfoque en riberas del río Cauca y rio Nechí..
 
 Utilizando modelos de **Aprendizaje de Máquina supervisado**, se genera una superficie de probabilidad con base en atributos del terreno, factores antrópicos y elementos geográficos relacionados con eventos del conflicto en el área el Plan Regional de Búsqueda de Bajo Cauca y Valdivia.
 
@@ -41,7 +41,7 @@ A través de visualizaciones interactivas, tablas de resumen y exportación de r
 """)
 
 # Nota aclaratoria
-st.caption("Los resultados son de carácter preliminar y deben ser validados mediante procesos de verificación en campo.")
+st.caption("Los resultados de este aplicativo son de carácter exploratorio y Aunque se implementan técnicas de aprendizaje automático —herramientas computacionales diseñadas para reconocer patrones y clasificar datos a partir de ejemplos—, se ha optado por no usar el término “predicción” de forma directa. Esto se debe a que esta propuesta no busca ni pretende reemplazar la profunda labor investigativa, testimonial y humanitaria que realizan los buscadores y buscadoras, sino que propone una aproximación técnica complementaria, desde el campo de los análisis geoespaciales, para aportar datos que acoten esa labor titánica.")
 
 st.subheader(":violet[Carga de datos:]", divider=True)
 # -------------------------------
