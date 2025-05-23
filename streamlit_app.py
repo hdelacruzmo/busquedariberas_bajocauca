@@ -21,11 +21,11 @@ with col_logo:
     logo_path = "resources/img/ubpd_color_logo.png"
     logo = Image.open(logo_path)
     st.image(logo, width=300)
-with col_title:
-    st.title("Estimación de probabilidad de sitio de interés para la búsqueda")
+#with col_title:
+    #st.title("Estimación de probabilidad de sitio de interés para la búsqueda")
 
 
-st.title(" Delimitación de áreas de interés forense usando Machine Learning y análisis espacial en el Bajo Cauca​")
+st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
 
 # -------------------------------
 #  VISUALIZACIÓN DEL GPKG
