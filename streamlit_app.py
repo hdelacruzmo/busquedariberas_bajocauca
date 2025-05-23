@@ -163,7 +163,7 @@ if uploaded_gpkg is not None:
                 col1, col2 = st.columns([1, 1])
     
                 with col1:
-                    st.markdown("### Mapa estático del modelo")
+                    st.markdown("#### Mapa estático del modelo")
                     x_coords = gdf_resultado.geometry.x
                     y_coords = gdf_resultado.geometry.y
                     probs = gdf_resultado["probabilidad"]
