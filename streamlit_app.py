@@ -16,7 +16,7 @@ from PIL import Image
 st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon="Sitios Búsquedaﾠ")
 
 ##Logo UBPD
-logo = Image.open("resources/img/logo_entidad.png")
+logo = Image.open("resources/img/ubpd_color_logo.png")
 st.image(logo, width=500)
 
 
