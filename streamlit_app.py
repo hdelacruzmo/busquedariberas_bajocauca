@@ -46,7 +46,7 @@ st.caption("Los resultados de este aplicativo son de carácter exploratorio y Au
 
 # Construccion Dataset
 
-with st.expander(":violet[Generación del dataset de entrada]"):
+with st.expander(":violet[Clic acá para ver información sobre la generación previa del dataset de entrada]"):
     st.markdown("""
     El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en `QGIS`. A partir de una cuadrícula base de puntos generada cada 500 metros sobre el área de estudio, se calcularon las siguientes variables espaciales:
 
@@ -70,7 +70,7 @@ st.subheader(":violet[Carga de datos:]", divider=True)
 #  VISUALIZACIÓN DEL GPKG
 # -------------------------------
 
-with st.expander(" Vistas previas del área geográfica cubierta (.gpkg)"):
+with st.expander(" Clic acá para subir el archivo de entrada"):
     uploaded_gpkg = st.file_uploader(
         "Sube tu archivo GPKG", accept_multiple_files=False, type=["gpkg"], key="gpkg"
     )
