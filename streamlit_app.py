@@ -18,7 +18,7 @@ st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon
 ##Logo UBPD
 col_logo, col_title = st.columns([1, 6])
 with col_logo:
-    logo_path = "resources/img/ubpd_color_logo.svg"
+    logo_path = "resources/img/ubpd_color_logo.png"
     logo = Image.open(logo_path)
     st.image(logo, width=90)
 with col_title:
