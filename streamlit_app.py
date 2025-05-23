@@ -221,7 +221,7 @@ if uploaded_gpkg is not None:
                 )
                 #st.dataframe(tabla_mostrar, height=400, use_container_width=True)
                 
-                st.subheader("Estadísticas por rangos de probabilidad")
+                st.subheader(":violet[Estadísticas por rangos de probabilidad]")
                 bins = [0, 0.2, 0.4, 0.6, 0.8, 1.01]
                 labels = ["0–0.2", "0.2–0.4", "0.4–0.6", "0.6–0.8", "0.8–1"]
                 gdf_resultado["rango_probabilidad"] = pd.cut(
@@ -254,7 +254,7 @@ if uploaded_gpkg is not None:
                 st.plotly_chart(fig, use_container_width=True)
 
                 ### Exploración interactiva por variable
-                st.markdown("### Exploración interactiva por variable")
+                st.markdown("### :violet[Exploración interactiva por variable]")
 
                 # Variables predictoras (excepto probabilidad y tipo_punto)
                 variables_numericas = [
