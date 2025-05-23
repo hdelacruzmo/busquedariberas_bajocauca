@@ -163,7 +163,7 @@ if uploaded_gpkg is not None:
                 col1, col2 = st.columns([1, 1])
     
                 with col1:
-                    st.markdown("#### Mapa estático del modelo")
+                    st.markdown("#### :violet[Mapa estático del modelo]")
                     x_coords = gdf_resultado.geometry.x
                     y_coords = gdf_resultado.geometry.y
                     probs = gdf_resultado["probabilidad"]
@@ -187,7 +187,7 @@ if uploaded_gpkg is not None:
                     st.markdown("<div style='height: 80px;'></div>", unsafe_allow_html=True)
 
                 
-                    st.markdown("### Estadísticas Generales:")
+                    st.markdown("#### :violet[Estadísticas Generales:]")
                     st.markdown(f"- **Número total de puntos**: {len(gdf_resultado)}")
                     st.markdown(f"- **Probabilidad promedio**: {gdf_resultado['probabilidad'].mean():.3f}")
                     st.markdown(f"- **Máxima**: {gdf_resultado['probabilidad'].max():.3f} | **Mínima**: {gdf_resultado['probabilidad'].min():.3f}")
