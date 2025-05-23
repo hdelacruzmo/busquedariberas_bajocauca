@@ -43,6 +43,25 @@ A través de visualizaciones interactivas, tablas de resumen y exportación de r
 # Nota aclaratoria
 st.caption("Los resultados de este aplicativo son de carácter exploratorio y Aunque se implementan técnicas de aprendizaje automático —herramientas computacionales diseñadas para reconocer patrones y clasificar datos a partir de ejemplos—, se ha optado por no usar el término “predicción” de forma directa. Esto se debe a que esta propuesta no busca ni pretende reemplazar la profunda labor investigativa, testimonial y humanitaria que realizan los buscadores y buscadoras, sino que propone una aproximación técnica complementaria, desde el campo de los análisis geoespaciales, para aportar datos que acoten esa labor titánica.")
 
+# Construccion Dataset
+
+with st.expander("Generación del dataset de entrada"):
+    st.markdown("""
+    El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en QGIS. A partir de una cuadrícula base de puntos generada cada 200 metros sobre el área de estudio, se calcularon múltiples variables espaciales mediante herramientas como "Distancia a entidad", "Unir atributos por localización", "Estadísticas zonales", "Intersecar capas", entre otras.
+
+    Estas variables incluyen:
+
+    - **Distancias** a minas, vías, eventos de combate y núcleos urbanos
+    - **Densidades** en ventanas móviles de minas, eventos, no combatientes y predios URT
+    - **Características topográficas** como pendiente y orientación (aspecto), derivadas de modelos de elevación digital
+    - **Tipo de cobertura del suelo**, **relieve morfométrico** y **tipo de vía**, extraídos por intersección con cartografía temática
+    - **Categorías de cultivo** a partir de información de cobertura agropecuaria
+
+    Finalmente, estas variables fueron compiladas en una única tabla tabular asociada a la capa de puntos mediante una unión espacial, que luego fue exportada como un archivo `.gpkg` para su análisis en la herramienta.
+    """)
+
+
+# ---------------carga de datos
 st.subheader(":violet[Carga de datos:]", divider=True)
 # -------------------------------
 #  VISUALIZACIÓN DEL GPKG
