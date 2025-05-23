@@ -47,15 +47,17 @@ st.caption("Los resultados de este aplicativo son de carácter exploratorio y Au
 
 with st.expander("Generación del dataset de entrada"):
     st.markdown("""
-    El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en QGIS. A partir de una cuadrícula base de puntos generada cada 200 metros sobre el área de estudio, se calcularon múltiples variables espaciales mediante herramientas como "Distancia a entidad", "Unir atributos por localización", "Estadísticas zonales", "Intersecar capas", entre otras.
+    El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en QGIS. A partir de una cuadrícula base de puntos generada cada 500 metros sobre el área de estudio, se calcularon las siguientes variables espaciales:
 
-    Estas variables incluyen:
-
-    - **Distancias** a minas, vías, eventos de combate y núcleos urbanos
-    - **Densidades** en ventanas móviles de minas, eventos, no combatientes y predios URT
-    - **Características topográficas** como pendiente y orientación (aspecto), derivadas de modelos de elevación digital
-    - **Tipo de cobertura del suelo**, **relieve morfométrico** y **tipo de vía**, extraídos por intersección con cartografía temática
-    - **Categorías de cultivo** a partir de información de cobertura agropecuaria
+    - **Distancias** a eventos de minas, acciones orientadas a civiles o a combatientes, y a vías.
+        ¿a qué distancia está cada evento?
+        
+    - **Densidades** en radios definidos en torno a eventos de minas, acciones orientadas a civiles o a combatientes
+        ¿Cuántos eventos han sucedido en un radio de 250 m? 
+    
+    - **Características topográficas** como pendiente y orientación (aspecto), derivadas de modelos de elevación digital  
+    - **Tipo de cobertura del suelo**, **tipo de relieve morfométrico** y **tipo de vía**, extraídos por intersección con cartografía temática
+    - **Solicitudes de restitución de predios** a partir de información dela URT.
 
     Finalmente, estas variables fueron compiladas en una única tabla tabular asociada a la capa de puntos mediante una unión espacial, que luego fue exportada como un archivo `.gpkg` para su análisis en la herramienta.
     """)
