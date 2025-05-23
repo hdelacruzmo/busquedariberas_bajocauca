@@ -70,7 +70,7 @@ st.subheader(":violet[Carga de datos:]", divider=True)
 #  VISUALIZACIÓN DEL GPKG
 # -------------------------------
 
-with st.expander(" Clic acá para subir el archivo de entrada"):
+with st.expander(":violet[Clic acá para subir el archivo de entrada]"):
     uploaded_gpkg = st.file_uploader(
         "Sube tu archivo GPKG", accept_multiple_files=False, type=["gpkg"], key="gpkg"
     )
