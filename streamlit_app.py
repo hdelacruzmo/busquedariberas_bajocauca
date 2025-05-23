@@ -15,14 +15,10 @@ from PIL import Image
 
 st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon="Sitios Búsquedaﾠ")
 
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <img src='resources/img/ubpd_color_logo.png' width='300'/>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+
+##Logo UBPD
+logo = Image.open("resources/img/ubpd_color_logo.png")
+st.image(logo, width=500, use_container_width=False)
 
 
 st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
