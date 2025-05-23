@@ -22,7 +22,7 @@ st.image(logo, width=500, use_container_width=False)
 
 
 st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
-
+st.subheader("Se presenta al aplicativo que permite realizar un análisis de probabilidad para el área del Río Cauca comparando tres modelos diferentes y entregando los sitios que tienen un umbral en común.")
 # -------------------------------
 #  VISUALIZACIÓN DEL GPKG
 # -------------------------------
