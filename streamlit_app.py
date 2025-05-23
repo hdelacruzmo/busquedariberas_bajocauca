@@ -20,10 +20,27 @@ st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon
 logo = Image.open("resources/img/ubpd_color_logo.png")
 st.image(logo, width=500, use_container_width=False)
 
+# Subtítulo contextual
+st.subheader("Proyecto de Búsqueda en Riberas — Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda")
 
-st.title(":violet[Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​]")
-st.divider()
-st.markdown("En el marco del proyecto de Búsqueda en Riberas desarrollado por la Subdirección de Análisis y la Subdirección de Gestión de información para la búsqueda, se presenta al aplicativo que permite realizar un análisis de probabilidad para el área del Río Cauca comparando tres modelos diferentes y entregando los sitios que tienen un umbral en común.")
+# Texto descriptivo
+st.markdown("""
+Este aplicativo permite realizar un análisis de probabilidad espacial orientado a la identificación de áreas con alta probabilidad de interés para la búsqueda de personas dadas por desaparecidas, con enfoque en riberas del río Cauca.
+
+Utilizando modelos de **Aprendizaje de Máquina supervisado**, se genera una superficie de probabilidad con base en atributos del terreno, factores antrópicos y elementos geográficos relacionados con eventos del conflicto.
+
+El sistema compara el comportamiento de tres enfoques diferentes:
+
+- Modelo 1: Regresión Logística (MaxEnt)
+- Modelo 2: Ensamble de Regresiones Lineales
+- Modelo 3: Random Forest (Árboles de decisión)
+
+A través de visualizaciones interactivas, tablas de resumen y exportación de resultados, esta herramienta facilita la toma de decisiones basada en evidencia geoespacial.
+""")
+
+# Nota aclaratoria
+st.caption("Los resultados son de carácter preliminar y deben ser validados mediante procesos de verificación en campo.")
+
 st.subheader(":violet[Carga de datos:]", divider=True)
 # -------------------------------
 #  VISUALIZACIÓN DEL GPKG
