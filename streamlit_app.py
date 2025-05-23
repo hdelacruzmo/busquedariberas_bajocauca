@@ -280,7 +280,7 @@ if uploaded_gpkg is not None:
 
                 
                 ### Descargar archivo con resultados
-                st.markdown("### Descargar archivo con resultados")
+                st.markdown("### :violet[Descargar archivo con resultados]")
                 output_path = f"/tmp/resultados_{nombre_modelo.lower().replace(' ', '_')}.gpkg"
                 gdf_resultado.to_file(output_path, driver="GPKG")
                 with open(output_path, "rb") as f:
