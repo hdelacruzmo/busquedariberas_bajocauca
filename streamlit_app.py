@@ -45,9 +45,9 @@ st.caption("Los resultados de este aplicativo son de carácter exploratorio y Au
 
 # Construccion Dataset
 
-with st.expander("Generación del dataset de entrada"):
+with st.expander(":violet[Generación del dataset de entrada]"):
     st.markdown("""
-    El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en QGIS. A partir de una cuadrícula base de puntos generada cada 500 metros sobre el área de estudio, se calcularon las siguientes variables espaciales:
+    El dataset de entrada utilizado por los modelos fue construido mediante una serie de procesos de geoprocesamiento en `QGIS`. A partir de una cuadrícula base de puntos generada cada 500 metros sobre el área de estudio, se calcularon las siguientes variables espaciales:
 
     - **Distancias** a eventos de minas, acciones orientadas a civiles o a combatientes, y a vías.
         ¿a qué distancia está cada evento?
