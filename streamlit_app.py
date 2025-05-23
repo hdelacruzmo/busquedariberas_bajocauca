@@ -17,7 +17,7 @@ st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon
 
 ##Logo UBPD
 logo = Image.open("resources/img/ubpd_color_logo.png")
-st.image(logo, width=500)
+st.image(logo, width=500, use_column_width=False)
 
 
 st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
