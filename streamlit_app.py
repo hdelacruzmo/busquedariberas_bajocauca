@@ -20,7 +20,7 @@ st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon
 logo = Image.open("resources/img/ubpd_color_logo.png")
 st.image(logo, width=500, use_container_width=False)
 
-st.title(":violet[Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​]")
+st.title(":violet[Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional - UBPD​]")
 
 # Subtítulo contextual
 st.subheader(":gray[Proyecto de Búsqueda en Riberas — _Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda_]")
