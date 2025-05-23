@@ -16,13 +16,8 @@ from PIL import Image
 st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon="Sitios Búsquedaﾠ")
 
 ##Logo UBPD
-col_logo, col_title = st.columns([1, 6])
-with col_logo:
-    logo_path = "resources/img/ubpd_color_logo.png"
-    logo = Image.open(logo_path)
-    st.image(logo, width=500, use_column_width=False)
-#with col_title:
-    #st.title("Estimación de probabilidad de sitio de interés para la búsqueda")
+logo = Image.open("resources/img/logo_entidad.png")
+st.image(logo, width=500)
 
 
 st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
