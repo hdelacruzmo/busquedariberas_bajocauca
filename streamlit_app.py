@@ -25,7 +25,7 @@ st.title(":violet[Delimitación de áreas de interés para la búsqueda usando A
 # Subtítulo contextual
 st.subheader("Proyecto de Búsqueda en Riberas — _Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda_")
 
-with st.expander(":violet[Introducción]"):
+st.subheader(":violet[Introducción:]", divider=True)
 # Texto descriptivo
 st.markdown("""
 Este aplicativo permite realizar un análisis de probabilidad espacial orientado a la identificación de áreas con alta probabilidad de interés para la búsqueda de personas dadas por desaparecidas, con enfoque en riberas del río Cauca y rio Nechí.
