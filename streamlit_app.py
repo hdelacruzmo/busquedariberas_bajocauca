@@ -59,7 +59,7 @@ with st.expander(":violet[Generación del dataset de entrada]"):
     - **Tipo de cobertura del suelo**, **tipo de relieve morfométrico** y **tipo de vía**, extraídos por intersección con cartografía temática
     - **Solicitudes de restitución de predios** a partir de información dela URT.
 
-    Finalmente, estas variables fueron compiladas en una única tabla tabular asociada a la capa de puntos mediante una unión espacial, que luego fue exportada como un archivo `.gpkg` para su análisis en la herramienta.
+    Finalmente, estas variables fueron compiladas en una única capa geográfica de puntos mediante una unión espacial, que luego fue exportada como un archivo `.gpkg` para su análisis en la herramienta.
     """)
 
 
@@ -69,7 +69,7 @@ st.subheader(":violet[Carga de datos:]", divider=True)
 #  VISUALIZACIÓN DEL GPKG
 # -------------------------------
 
-with st.expander(" Ver área geográfica cubierta (.gpkg)"):
+with st.expander(" Vistas previas del área geográfica cubierta (.gpkg)"):
     uploaded_gpkg = st.file_uploader(
         "Sube tu archivo GPKG", accept_multiple_files=False, type=["gpkg"], key="gpkg"
     )
