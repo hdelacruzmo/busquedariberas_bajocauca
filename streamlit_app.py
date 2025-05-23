@@ -156,7 +156,7 @@ if uploaded_gpkg is not None:
             tab = tab1 if nombre_modelo == "Modelo 1 : Regresión Logística (MaxEnt)" else tab2 if nombre_modelo == "Modelo 2 : Ensamble de Regresiones" else tab3
 
             with tab:
-                st.subheader(f"Resultados del modelo {nombre_modelo}")
+                st.markdown(f"Resultados del modelo {nombre_modelo}")
 
                 ### acá
 
