@@ -24,7 +24,7 @@ st.image(logo, width=500, use_container_width=False)
 st.title(" Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​")
 st.divider()
 st.subheader("En el marco del proyecto de Búsqueda en Riberas desarrollado por la Subdirección de Análisis y la Subdirección de Gestión de información para la búsqueda, se presenta al aplicativo que permite realizar un análisis de probabilidad para el área del Río Cauca comparando tres modelos diferentes y entregando los sitios que tienen un umbral en común.")
-st.divider()
+st.subheader("Carga de datos:", divider=True)
 # -------------------------------
 #  VISUALIZACIÓN DEL GPKG
 # -------------------------------
