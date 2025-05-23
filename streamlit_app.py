@@ -23,7 +23,7 @@ st.image(logo, width=500, use_container_width=False)
 st.title(":violet[Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional​]")
 
 # Subtítulo contextual
-st.subheader("Proyecto de Búsqueda en Riberas — Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda")
+st.subheader("Proyecto de Búsqueda en Riberas — _Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda_")
 
 # Texto descriptivo
 st.markdown("""
@@ -130,7 +130,7 @@ with st.expander(" Vistas previas del área geográfica cubierta (.gpkg)"):
 #  PREDICCIÓN DESDE GPKG - TRES MODELOS
 # -------------------------------
 st.markdown("---")
-st.header("Estimación de probabilidad de sitio de interés para la búsqueda")
+st.subheader(":violet[Estimación de probabilidad de sitio de interés para la búsqueda:]", divider=True)
 
 ctrl = ModelController()
 
