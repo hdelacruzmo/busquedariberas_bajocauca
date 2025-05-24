@@ -152,6 +152,9 @@ if uploaded_gpkg is not None:
             ("Modelo 3 : Random Forest", ctrl.predict_with_third_model(gdf_input))
         ]
 
+        # Cargar capa de municipios
+        gdf_municipios = gpd.read_file("data/municipios.gpkg")
+        
         for nombre_modelo, gdf_resultado in modelos:
             tab = tab1 if nombre_modelo == "Modelo 1 : Regresión Logística (MaxEnt)" else tab2 if nombre_modelo == "Modelo 2 : Ensamble de Regresiones" else tab3
 
