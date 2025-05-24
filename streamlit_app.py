@@ -173,36 +173,40 @@ if uploaded_gpkg is not None:
                 
 
                     fig, ax = plt.subplots(figsize=(3.5, 3.5))
-                    
-                    # Verificar CRS de municipios
-                    if gdf_municipios.crs != gdf_resultado.crs:
-                        gdf_municipios = gdf_municipios.to_crs(gdf_resultado.crs)
+
+                    # Verificar y reproyectar municipios dentro de cada modelo
+                    gdf_mun = gdf_municipios.copy()
+                    if gdf_mun.crs != gdf_resultado.crs:
+                        try:
+                            gdf_mun = gdf_mun.to_crs(gdf_resultado.crs)
+                        except Exception as e:
+                            st.warning(f"No se pudo reproyectar municipios: {e}")
                     
                     # Dibujar límites de municipios primero
-                    gdf_municipios.boundary.plot(ax=ax, color="black", linewidth=0.5)
+                    gdf_mun.boundary.plot(ax=ax, color="black", linewidth=0.5, alpha=0.5)
                     
-                    # Etiquetas de municipios
-                    for idx, row in gdf_municipios.iterrows():
-                        if row["geometry"].centroid.is_empty:
+                    # Añadir nombres de municipios (opcional)
+                    for idx, row in gdf_mun.iterrows():
+                        if row.geometry.centroid.is_empty:
                             continue
-                        x, y = row["geometry"].centroid.x, row["geometry"].centroid.y
+                        x, y = row.geometry.centroid.x, row.geometry.centroid.y
                         ax.text(x, y, row["MPIO_CNMBR"], fontsize=7, ha='center', va='center', color="black")
                     
-                    # Dibujar puntos con transparencia
+                    # Dibujar los puntos del modelo con menor tamaño y transparencia
                     scatter = ax.scatter(
                         gdf_resultado.geometry.x,
                         gdf_resultado.geometry.y,
                         c=gdf_resultado["probabilidad"],
                         cmap="viridis",
-                        s=2,                  # Tamaño reducido
-                        alpha=0.4,            # Transparencia
+                        s=0.8,             # Tamaño reducido
+                        alpha=0.3,         # Más transparente
                         edgecolor="none",
                         vmin=0, vmax=1
                     )
                     
-                    # Colorbar y título
+                    # Barra de color y ajustes finales
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
-                    cbar.set_label("Probabilidad", fontsize=9)
+                    cbar.set_label("Probabilidad", fontsize=10)
                     cbar.ax.tick_params(labelsize=8)
                     ax.set_title("Distribución espacial de probabilidad", fontsize=10)
                     ax.axis("off")
