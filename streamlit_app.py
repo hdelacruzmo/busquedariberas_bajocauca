@@ -187,7 +187,7 @@ if uploaded_gpkg is not None:
                     buffer.seek(0)
                     
                     # Mostrar imagen reducida con Streamlit
-                    st.image(buffer, caption="Mapa estático del modelo", use_column_width=True)
+                    st.image(buffer, caption="Mapa estático del modelo", use_container_width =True)
                     
                     # Botón para descargar la imagen
                     st.download_button(
