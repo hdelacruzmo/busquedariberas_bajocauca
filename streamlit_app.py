@@ -180,16 +180,21 @@ if uploaded_gpkg is not None:
                     ax.set_title("Distribución espacial de probabilidad", fontsize=8)
                     ax.axis("off")
 
-                    # Guardar imagen como PNG temporal
-                    output_img_path = f"/tmp/mapa_{nombre_modelo.replace(' ', '_').lower()}.png"
-                    fig.savefig(output_img_path, dpi=300, bbox_inches='tight')
+                    # Guardar imagen en un buffer de memoria
+                    buffer = BytesIO()
+                    fig.savefig(buffer, format='png', dpi=300, bbox_inches='tight')
+                    buffer.seek(0)
                     
-                    # Mostrar imagen con enlace para ampliar
-                    st.markdown(f"""
-                    <a href="file://{output_img_path}" target="_blank">
-                        <img src="file://{output_img_path}" width="300"/>
-                    </a>
-                    """, unsafe_allow_html=True)
+                    # Mostrar imagen reducida con Streamlit
+                    st.image(buffer, caption="Mapa estático del modelo", use_column_width=True)
+                    
+                    # Botón para descargar la imagen
+                    st.download_button(
+                        label="📥 Descargar imagen del mapa",
+                        data=buffer,
+                        file_name=f"mapa_{nombre_modelo.lower().replace(' ', '_')}.png",
+                        mime="image/png"
+                    )
 
                 
                 
