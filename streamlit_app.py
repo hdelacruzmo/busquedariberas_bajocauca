@@ -11,6 +11,7 @@ from streamlit_folium import st_folium
 from src.back.ModelController import ModelController
 from sklearn.metrics import confusion_matrix, classification_report, RocCurveDisplay
 from PIL import Image
+from io import BytesIO
 
 
 st.set_page_config(layout="wide", page_title="Búsqueda Riberas UBPD", page_icon="Sitios Búsquedaﾠ")
