@@ -188,7 +188,7 @@ if uploaded_gpkg is not None:
                         if row["geometry"].centroid.is_empty:
                             continue
                         x, y = row["geometry"].centroid.x, row["geometry"].centroid.y
-                        ax.text(x, y, row["NOMBRE"], fontsize=6, ha='center', va='center')
+                        ax.text(x, y, row["MPIO_CNMBR"], fontsize=6, ha='center', va='center')
                     
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
                     cbar.set_label("Probabilidad", fontsize=10)
