@@ -11,3 +11,4 @@ streamlit-folium
 folium
 seaborn
 Pillow
+io
