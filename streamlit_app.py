@@ -152,9 +152,6 @@ if uploaded_gpkg is not None:
             ("Modelo 3 : Random Forest", ctrl.predict_with_third_model(gdf_input))
         ]
 
-        # Cargar capa de municipios
-        gdf_municipios = gpd.read_file("resources/data/municipios.gpkg")
-        
         for nombre_modelo, gdf_resultado in modelos:
             tab = tab1 if nombre_modelo == "Modelo 1 : Regresión Logística (MaxEnt)" else tab2 if nombre_modelo == "Modelo 2 : Ensamble de Regresiones" else tab3
 
@@ -171,47 +168,18 @@ if uploaded_gpkg is not None:
                     y_coords = gdf_resultado.geometry.y
                     probs = gdf_resultado["probabilidad"]
                 
-
-                    fig, ax = plt.subplots(figsize=(3.5, 3.5))
-
-                    # Verificar y reproyectar municipios dentro de cada modelo
-                    gdf_mun = gdf_municipios.copy()
-                    if gdf_mun.crs != gdf_resultado.crs:
-                        try:
-                            gdf_mun = gdf_mun.to_crs(gdf_resultado.crs)
-                        except Exception as e:
-                            st.warning(f"No se pudo reproyectar municipios: {e}")
-                    
-                    # Dibujar límites de municipios primero
-                    gdf_mun.boundary.plot(ax=ax, color="black", linewidth=0.5, alpha=0.5)
-                    
-                    # Añadir nombres de municipios (opcional)
-                    for idx, row in gdf_mun.iterrows():
-                        if row.geometry.centroid.is_empty:
-                            continue
-                        x, y = row.geometry.centroid.x, row.geometry.centroid.y
-                        ax.text(x, y, row["MPIO_CNMBR"], fontsize=7, ha='center', va='center', color="black")
-                    
-                    # Dibujar los puntos del modelo con menor tamaño y transparencia
+                    fig, ax = plt.subplots(figsize=(1.5, 1.5))
                     scatter = ax.scatter(
-                        gdf_resultado.geometry.x,
-                        gdf_resultado.geometry.y,
-                        c=gdf_resultado["probabilidad"],
-                        cmap="viridis",
-                        s=0.8,             # Tamaño reducido
-                        alpha=0.3,         # Más transparente
-                        edgecolor="none",
+                        x_coords, y_coords, c=probs,
+                        cmap="viridis", s=2, edgecolor="none",
                         vmin=0, vmax=1
                     )
-                    
-                    # Barra de color y ajustes finales
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
-                    cbar.set_label("Probabilidad", fontsize=10)
-                    cbar.ax.tick_params(labelsize=8)
-                    ax.set_title("Distribución espacial de probabilidad", fontsize=10)
+                    cbar.set_label("Probabilidad", fontsize=6)
+                    cbar.ax.tick_params(labelsize=4)
+                    ax.set_title("Distribución espacial de probabilidad", fontsize=8)
                     ax.axis("off")
-
-                
+                    st.pyplot(fig)
                 
                 with col2:
                     # Espaciador vertical
