@@ -173,13 +173,8 @@ if uploaded_gpkg is not None:
                 
 
                     fig, ax = plt.subplots(figsize=(3.5, 3.5))
-                    scatter = ax.scatter(
-                        x_coords, y_coords, c=probs,
-                        cmap="viridis", s=1.5, edgecolor="none",
-                        vmin=0, vmax=1
-                    )
                     
-                    # Añadir capa de municipios
+                    # Dibujar polígonos de municipios y nombres
                     if gdf_municipios.crs != gdf_resultado.crs:
                         gdf_municipios = gdf_municipios.to_crs(gdf_resultado.crs)
                     
@@ -188,8 +183,16 @@ if uploaded_gpkg is not None:
                         if row["geometry"].centroid.is_empty:
                             continue
                         x, y = row["geometry"].centroid.x, row["geometry"].centroid.y
-                        ax.text(x, y, row["MPIO_CNMBR"], fontsize=6, ha='center', va='center')
+                        ax.text(x, y, row["MPIO_CNMBR"], fontsize=8, ha='center', va='center', color="black")
                     
+                    # Dibujar puntos con transparencia
+                    scatter = ax.scatter(
+                        x_coords, y_coords, c=probs,
+                        cmap="viridis", s=1, edgecolor="none",
+                        vmin=0, vmax=1, alpha=0.5
+                    )
+                    
+                    # Colorbar y título
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
                     cbar.set_label("Probabilidad", fontsize=10)
                     cbar.ax.tick_params(labelsize=8)
