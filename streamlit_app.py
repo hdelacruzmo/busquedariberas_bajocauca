@@ -171,18 +171,32 @@ if uploaded_gpkg is not None:
                     y_coords = gdf_resultado.geometry.y
                     probs = gdf_resultado["probabilidad"]
                 
-                    fig, ax = plt.subplots(figsize=(1.5, 1.5))
+
+                    fig, ax = plt.subplots(figsize=(3.5, 3.5))
                     scatter = ax.scatter(
                         x_coords, y_coords, c=probs,
-                        cmap="viridis", s=2, edgecolor="none",
+                        cmap="viridis", s=1.5, edgecolor="none",
                         vmin=0, vmax=1
                     )
+                    
+                    # Añadir capa de municipios
+                    if gdf_municipios.crs != gdf_resultado.crs:
+                        gdf_municipios = gdf_municipios.to_crs(gdf_resultado.crs)
+                    
+                    gdf_municipios.boundary.plot(ax=ax, color="black", linewidth=0.5)
+                    for idx, row in gdf_municipios.iterrows():
+                        if row["geometry"].centroid.is_empty:
+                            continue
+                        x, y = row["geometry"].centroid.x, row["geometry"].centroid.y
+                        ax.text(x, y, row["NOMBRE"], fontsize=6, ha='center', va='center')
+                    
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
-                    cbar.set_label("Probabilidad", fontsize=6)
-                    cbar.ax.tick_params(labelsize=4)
-                    ax.set_title("Distribución espacial de probabilidad", fontsize=8)
+                    cbar.set_label("Probabilidad", fontsize=10)
+                    cbar.ax.tick_params(labelsize=8)
+                    ax.set_title("Distribución espacial de probabilidad", fontsize=12)
                     ax.axis("off")
-                    st.pyplot(fig)
+
+                
                 
                 with col2:
                     # Espaciador vertical
