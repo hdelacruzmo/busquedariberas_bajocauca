@@ -179,7 +179,19 @@ if uploaded_gpkg is not None:
                     cbar.ax.tick_params(labelsize=4)
                     ax.set_title("Distribución espacial de probabilidad", fontsize=8)
                     ax.axis("off")
-                    st.pyplot(fig)
+
+                    # Guardar imagen como PNG temporal
+                    output_img_path = f"/tmp/mapa_{nombre_modelo.replace(' ', '_').lower()}.png"
+                    fig.savefig(output_img_path, dpi=300, bbox_inches='tight')
+                    
+                    # Mostrar imagen con enlace para ampliar
+                    st.markdown(f"""
+                    <a href="file://{output_img_path}" target="_blank">
+                        <img src="file://{output_img_path}" width="300"/>
+                    </a>
+                    """, unsafe_allow_html=True)
+
+                
                 
                 with col2:
                     # Espaciador vertical
