@@ -24,8 +24,8 @@ st.image(logo, width=500, use_container_width=False)
 st.title(":violet[Delimitación de áreas de interés para la búsqueda usando Análisis Espacial y Aprendizaje Computacional - UBPD​]")
 
 ##Imagen satelital rio cauca
-logo = Image.open("resources/img/rio_cauca.png")
-st.image(logo, width=500, use_container_width=False)
+rio_cauca = Image.open("resources/img/rio_cauca.png")
+st.image(rio_cauca, width=500, use_container_width=False)
 
 # Subtítulo contextual
 st.subheader(":gray[Proyecto de Búsqueda en Riberas — _Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda_]")
