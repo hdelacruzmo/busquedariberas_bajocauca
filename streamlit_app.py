@@ -26,6 +26,9 @@ st.title(":violet[Delimitación de áreas de interés para la búsqueda usando A
 ##Imagen satelital rio cauca
 rio_cauca = Image.open("resources/img/rio_cauca.png")
 st.image(rio_cauca, width=1500, use_container_width=False)
+# Fuente
+st.caption("Imagen satelital del Río Cauca - Caucasia. Lat : 7.9351, Long:-75.1816")
+
 
 # Subtítulo contextual
 st.subheader(":gray[Proyecto de Búsqueda en Riberas — _Subdirección de Análisis, Planeación y Localización y Subdirección de Gestión de Información para la búsqueda_]")
