@@ -179,7 +179,7 @@ if uploaded_gpkg is not None:
                     fig, ax = plt.subplots(figsize=(1.5, 1.5))
                     scatter = ax.scatter(
                         x_coords, y_coords, c=probs,
-                        cmap="viridis", s=0.1, edgecolor="none",
+                        cmap="viridis", s=0.5, edgecolor="none",
                         vmin=0, vmax=1
                     )
                     cbar = plt.colorbar(scatter, ax=ax, shrink=0.75, pad=0.01)
